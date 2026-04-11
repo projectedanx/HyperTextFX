@@ -1,0 +1,5 @@
+{
+  "name": "HyperTextFX",
+  "description": "A high-performance hybrid text editor optimized for intensive text processing tasks, featuring advanced TextFX plugins, regex search, column mode operations, and Gemini AI intelligence.",
+  "requestFramePermissions": []
+}
