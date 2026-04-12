@@ -59,3 +59,12 @@ export interface AIContext {
   cursor: CursorPos;
   fileName: string;
 }
+
+export interface HistoryNode<T> {
+  id: string;
+  parentId: string | null;
+  childrenIds: string[];
+  state: T;
+  timestamp: number;
+  origin: 'user' | 'ai' | 'system';
+}

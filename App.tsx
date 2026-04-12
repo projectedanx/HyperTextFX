@@ -64,7 +64,7 @@ export default function App() {
     // Load draft on mount
     const saved = localStorage.getItem('htfx_autosave_content');
     if (saved) {
-      setContent(saved, true);
+      setContent(saved, true, 'system');
     }
     
     // Load settings on mount
@@ -92,8 +92,8 @@ export default function App() {
 
 
   // --- Helpers ---
-  const handleContentChange = (newContent: string) => {
-    setContent(newContent);
+  const handleContentChange = (newContent: string, origin: 'user' | 'ai' | 'system' = 'user') => {
+    setContent(newContent, false, origin);
     setFileInfo(prev => ({ ...prev, isModified: true }));
   };
 
@@ -119,13 +119,13 @@ export default function App() {
          const { text: newText, target } = call.args;
          
          if (target === 'document' || !context.selection) {
-            handleContentChange(newText);
+            handleContentChange(newText, 'ai');
             return "Document updated successfully.";
          } else {
             // Replace selection
             const before = content.substring(0, cursor.selectionStart);
             const after = content.substring(cursor.selectionEnd);
-            handleContentChange(before + newText + after);
+            handleContentChange(before + newText + after, 'ai');
             return "Selection updated successfully.";
          }
       }
@@ -177,7 +177,7 @@ export default function App() {
 
   const handleNew = () => {
     if (window.confirm('Clear all content? Unsaved changes will be lost.')) {
-      setContent('', true); // Overwrite history for new file
+      setContent('', true, 'system'); // Overwrite history for new file
       setFileInfo({ name: 'Untitled.txt', isModified: false });
     }
   };
@@ -188,7 +188,7 @@ export default function App() {
       const [handle] = await window.showOpenFilePicker();
       const file = await handle.getFile();
       const text = await file.text();
-      setContent(text, true);
+      setContent(text, true, 'system');
       setFileInfo({ name: file.name, handle, isModified: false });
     } catch (e) {
       // Fallback for browsers without File System Access API or cancellation
@@ -199,7 +199,7 @@ export default function App() {
            const file = (e.target as HTMLInputElement).files?.[0];
            if (file) {
              const text = await file.text();
-             setContent(text, true);
+             setContent(text, true, 'system');
              setFileInfo({ name: file.name, isModified: false });
            }
         };
