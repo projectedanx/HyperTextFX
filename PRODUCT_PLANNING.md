@@ -80,3 +80,20 @@
 1. Implement a metadata-to-decorator mapping engine in the Editor component.
 2. Update the Gemini streaming service to return confidence metrics.
 3. Build a background worker for continuous contradiction detection.
+
+## Feature 6: Dialectical Synthesis Plane (DSP)
+**Epic Breakdown:** As the Symbiotic Paraconsistent Undo Graph (SPUG) allows concurrent `user` and `ai` edits, it creates divergent state branches. The Dialectical Synthesis Plane (DSP) replaces traditional Git-style merge conflict resolution (which forces a binary choice or manual interweaving) with an AI-driven intent synthesis. It analyzes the semantic intent of both the user's branch and the AI's branch, then offers a third "Dialectical Merge" that incorporates the goals of both.
+**User Story:** As an experimental writer, I want the system to understand the intent behind my structural edits and merge them with the AI's stylistic expansions, so I don't have to resolve line-by-line syntax conflicts manually.
+**Acceptance Criteria:**
+- DSP activates when divergent SPUG branches are selected for merging.
+- Semantic Intent Extraction is performed on both `origin:user` and `origin:ai` branches.
+- The UI offers the original branches, plus an AI-generated "Dialectical Synthesis" option.
+- Resolving the synthesis collapses the superposition in the SPUG into a new unified node.
+**Stakeholder Perspective Analysis:**
+- *End User (Creative):* Eliminates "merge conflict anxiety" and turns contradiction into a generative tool.
+- *Technical Architect:* Requires precise tracking of text ranges (CRDTs or block-level tracking) to avoid hallucinated merges; relies heavily on the quality of the LLM context window.
+- *Business/Product:* Establishes a massive differentiator—true "shared cognition" vs. standard sequential AI turn-taking.
+**Requirement Decomposition:**
+1. Design and build the DSP UI component to visualize parallel SPUG nodes.
+2. Develop the Semantic Intent Extraction prompt chain in `services/gemini.ts`.
+3. Implement the "Dialectical Merge" generation logic and state reconciliation in `useHistory.ts`.
