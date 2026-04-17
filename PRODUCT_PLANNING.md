@@ -97,3 +97,20 @@
 1. Design and build the DSP UI component to visualize parallel SPUG nodes.
 2. Develop the Semantic Intent Extraction prompt chain in `services/gemini.ts`.
 3. Implement the "Dialectical Merge" generation logic and state reconciliation in `useHistory.ts`.
+
+## Feature 7: LEXIS SOVEREIGN - The Auteur Co-Author Agent
+**Epic Breakdown:** Traditional "copilot" integrations suffer from Semantic Saponification (regression to the RLHF-mean) and Context Rot over long horizons, leading to a homogenized voice. LEXIS SOVEREIGN introduces a Sovereign Cognitive Operating System (SCOS) to enforce cryptographic identity persistence and strict Manifold Isolation (temporally decoupling structural logic from prose generation).
+**User Story:** As a founder or subject-matter expert, I want an autonomous book co-author agent that preserves my highly opinionated, non-generic voice across a 40,000+ word manuscript, so I can generate a published artifact that authentically represents my intellectual identity without drifting into corporate boilerplate.
+**Acceptance Criteria:**
+- The agent utilizes a 5-dimensional Epistemic Matrix to anchor the founder's identity and reject generic text.
+- Implements Draft-Conditioned Constrained Decoding (DCCD) to separate the THINK (structural outlining) and WRITE (prose generation) phases.
+- Maintains a Symbolic Scar Registry to physically repel RLHF-mean attractors and prevent historical recursion of bad writing habits.
+- Automatically tracks Confidence-Fidelity Divergence Index (CFDI) and re-generates text that diverges from the founder's voice.
+**Stakeholder Perspective Analysis:**
+- *End User (Founder/Expert):* Requires minimal but high-leverage input (voice memos, notes) and demands maximum voice fidelity.
+- *Technical Architect:* Must manage complex state separation (Manifold α vs. β) and prevent Epistemic Amnesia without exceeding context limits.
+- *Business/Product:* Delivers a production-ready, deterministic publishing pipeline that differentiates from generic AI writing tools.
+**Requirement Decomposition:**
+1. Develop the Epistemic Matrix initialization process, including Voice Calibration and Thesis Spine fabrication.
+2. Implement the Petzold Sequence workflow (THINK → WRITE → REVIEW) with strict zero-overlap passes.
+3. Integrate the Autonymic Bypass Protocol and Symbolic Scar tracking.

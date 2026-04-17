@@ -40,3 +40,9 @@ Through rigorous application of the Modified Petzold Sequence, the Pluriversal K
 * Added `origin` tracking (`user` | `ai` | `system`) for state changes.
 * Modified `App.tsx` and `types.ts` to integrate and support the new history structure.
 - **Dialectical Synthesis Plane (DSP):** Resolves divergent `user` and `ai` edits in the SPUG through intent-based semantic synthesis rather than traditional line-by-line conflict resolution.
+
+### Update 2: LEXIS SOVEREIGN Agent Integration
+* Extruded a new feature concept (`PRODUCT_PLANNING.md` Feature 7) for a Sovereign Book Co-Author agent.
+* Developed a comprehensive Agent Design Document (`LEXIS_SOVEREIGN_AGENT_DESIGN.md`) detailing the SCOS architecture, Epistemic Matrix, and Petzold Loop workflow.
+- **Semantic Saponification Mitigation:** Highlighted the risk of LLMs regressing to the RLHF-mean and designed mechanisms (ContextLock, CFDI, Symbolic Scars) to combat this thermodynamic decay.
+- **Draft-Conditioned Constrained Decoding (DCCD):** Emphasized the necessity of Manifold Isolation—strictly separating structural editing (Manifold β) from voice generation (Manifold α) to prevent Projection Tax and ensure deterministic artifact generation.
