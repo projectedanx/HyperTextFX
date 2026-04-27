@@ -114,3 +114,20 @@
 1. Develop the Epistemic Matrix initialization process, including Voice Calibration and Thesis Spine fabrication.
 2. Implement the Petzold Sequence workflow (THINK → WRITE → REVIEW) with strict zero-overlap passes.
 3. Integrate the Autonymic Bypass Protocol and Symbolic Scar tracking.
+
+## Feature 8: Client-Side Execution Pipeline (CxEP) for RAG & Citation Validation
+**Epic Breakdown:** To support the deterministic requirements of the LEXIS SOVEREIGN agent (Feature 7) and prevent hallucination (Semantic Saponification), the editor requires a Retrieval-Augmented Generation (RAG) capability. However, to maintain our stateless, client-heavy architecture, we must eschew traditional server-side vector databases (like Firestore). The CxEP introduces a Web Worker-based local vector store and citation engine, ensuring all AI generations are grounded in local knowledge and strictly cited without blocking the main UI thread.
+**User Story:** As an expert author, I want the AI co-author to automatically reference and cite my massive folder of background research notes when generating text, so I can trust that its output is factually grounded in my own material rather than generic training data.
+**Acceptance Criteria:**
+- Documents can be ingested and chunked locally into a browser-based Vector Store (IndexedDB backed).
+- The Gemini generation pipeline automatically retrieves relevant chunks and performs an LLM-based re-ranking before synthesis.
+- Generated output includes explicit citation mapping; unmapped claims trigger a validation warning or "Tension" styling (Feature 5).
+- All vector operations and API calls are isolated in a Web Worker to prevent UI freezing during the SPUG merge process.
+**Stakeholder Perspective Analysis:**
+- *End User (Founder/Expert):* Gains immense trust in the system; it acts as a true research assistant rather than just a text generator.
+- *Technical Architect:* Must manage complex asynchronous message passing between the main thread (React/SPUG) and the Web Worker, while optimizing the memory footprint of local embedding models.
+- *Business/Product:* Eliminates the infrastructure costs and privacy concerns associated with hosting a central vector database, creating a strong unique selling proposition (USP).
+**Requirement Decomposition:**
+1. Implement a dedicated RAG Web Worker to handle document parsing, chunking, and local embedding generation.
+2. Integrate a local vector search mechanism (e.g., HNSW graph in IndexedDB).
+3. Update the `services/gemini.ts` pipeline to include a re-ranking middleware step and enforce the citation mapping output schema.
