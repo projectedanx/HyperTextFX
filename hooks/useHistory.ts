@@ -71,6 +71,88 @@ export function useHistory<T>(initialState: T) {
   const canUndo = nodesRef.current.get(currentId)?.parentId !== null;
   const canRedo = (nodesRef.current.get(currentId)?.childrenIds.length ?? 0) > 0;
 
+
+// Helper to find all leaf nodes from a given root/ancestor.
+  const getLeafNodes = useCallback((startId: string): HistoryNode<T>[] => {
+    const startNode = nodesRef.current.get(startId);
+    if (!startNode) return [];
+
+    if (startNode.childrenIds.length === 0) {
+      return [startNode];
+    }
+
+    let leaves: HistoryNode<T>[] = [];
+    for (const childId of startNode.childrenIds) {
+      leaves = leaves.concat(getLeafNodes(childId));
+    }
+    return leaves;
+  }, []);
+
+  const getLowestCommonAncestor = useCallback((node1Id: string, node2Id: string): HistoryNode<T> | null => {
+      // Find path from root to node1
+      const getPath = (id: string): string[] => {
+          const path = [id];
+          let curr = nodesRef.current.get(id);
+          while (curr && curr.parentId) {
+              path.unshift(curr.parentId);
+              curr = nodesRef.current.get(curr.parentId);
+          }
+          return path;
+      };
+
+      const path1 = getPath(node1Id);
+      const path2 = getPath(node2Id);
+
+      let lcaId = null;
+      for (let i = 0; i < Math.min(path1.length, path2.length); i++) {
+          if (path1[i] === path2[i]) {
+              lcaId = path1[i];
+          } else {
+              break;
+          }
+      }
+
+      return lcaId ? nodesRef.current.get(lcaId) || null : null;
+  }, []);
+
+  const getDivergentBranches = useCallback(() => {
+    const rootId = Array.from(nodesRef.current.values()).find(n => n.parentId === null)?.id;
+    if (!rootId) return null;
+
+    const leaves = getLeafNodes(rootId);
+    if (leaves.length > 1) {
+      return leaves;
+    }
+
+    return null;
+  }, [getLeafNodes]);
+
+  const mergeBranches = useCallback((branchIds: string[], synthesizedState: T, origin: 'user' | 'ai' | 'system' | 'synthesis' = 'synthesis') => {
+    const newId = generateId();
+
+    const primaryParentId = branchIds.length > 0 ? branchIds[0] : currentId;
+
+    const newNode: HistoryNode<T> = {
+      id: newId,
+      parentId: primaryParentId,
+      parentIds: branchIds,
+      childrenIds: [],
+      state: synthesizedState,
+      timestamp: Date.now(),
+      origin,
+    };
+
+    branchIds.forEach(id => {
+       const branch = nodesRef.current.get(id);
+       if (branch) {
+           branch.childrenIds.push(newId);
+       }
+    });
+
+    nodesRef.current.set(newId, newNode);
+    setCurrentId(newId);
+  }, [currentId]);
+
   return {
     state: currentState,
     set: setState,
@@ -79,6 +161,9 @@ export function useHistory<T>(initialState: T) {
     canUndo,
     canRedo,
     nodes: nodesRef.current, // Exposing nodes for visualization if needed
-    currentId
+    currentId,
+    getDivergentBranches,
+    mergeBranches,
+    getLowestCommonAncestor
   };
 }

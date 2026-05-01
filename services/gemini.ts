@@ -119,3 +119,55 @@ If the user asks a question, answer concisely.
     yield { type: 'error', content: "I encountered an error processing your request." };
   }
 }
+
+export async function synthesizeBranches(
+  ancestorText: string,
+  branchA: { origin: string; text: string },
+  branchB: { origin: string; text: string }
+): Promise<string> {
+  const systemInstruction = `
+You are the Dialectical Synthesis Plane (DSP) for HyperTextFX.
+Your job is to resolve divergent text branches not by simple line-by-line conflict resolution, but by semantic intent synthesis.
+
+You will be given:
+1. The original ancestor text.
+2. Branch A (e.g., User's structural edits).
+3. Branch B (e.g., AI's stylistic expansions).
+
+Analyze the semantic intent of both branches. What was the user trying to achieve? What was the AI adding?
+Generate a unified "Dialectical Merge" text that incorporates the goals and valuable additions of BOTH branches seamlessly.
+Return ONLY the synthesized text, without any markdown formatting or explanation.
+  `.trim();
+
+  const prompt = `
+=== ANCESTOR TEXT ===
+${ancestorText}
+
+=== BRANCH A (${branchA.origin}) ===
+${branchA.text}
+
+=== BRANCH B (${branchB.origin}) ===
+${branchB.text}
+
+Provide the synthesized text:
+  `.trim();
+
+  try {
+    const chat = ai.chats.create({
+      model: MODEL_NAME,
+      config: {
+        systemInstruction,
+        temperature: 0.7,
+      },
+    });
+
+    const result = await chat.sendMessage({ message: prompt });
+    let text = result.text || '';
+    // Strip markdown code block if present
+    text = text.replace(/^```\w*\n/g, '').replace(/\n```$/g, '');
+    return text;
+  } catch (error) {
+    console.error("Gemini API Error in synthesis:", error);
+    throw new Error("Failed to synthesize branches");
+  }
+}

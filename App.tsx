@@ -4,6 +4,7 @@ import { Toolbar } from './components/Toolbar';
 import { StatusBar } from './components/StatusBar';
 import { Editor } from './components/Editor';
 import { Modal } from './components/ui/Modal';
+import { DSPModal } from './components/DSPModal';
 import { AIPanel } from './components/AIPanel';
 import { useHistory } from './hooks/useHistory';
 import { streamGeminiResponse } from './services/gemini';
@@ -25,7 +26,7 @@ import {
 
 export default function App() {
   // --- State ---
-  const { state: content, set: setContent, undo, redo } = useHistory<string>('// Welcome to HyperTextFX\n// Start typing or drop a file here...\n// Toggle Gemini AI in the toolbar to start coding intelligently.');
+  const { state: content, set: setContent, undo, redo, getDivergentBranches, mergeBranches, getLowestCommonAncestor, nodes, currentId } = useHistory<string>('// Welcome to HyperTextFX\n// Start typing or drop a file here...\n// Toggle Gemini AI in the toolbar to start coding intelligently.');
   
   const [fileInfo, setFileInfo] = useState<FileInfo>({ name: 'Untitled.txt', isModified: false });
   const [cursor, setCursor] = useState<CursorPos>({ line: 1, col: 1, selectionStart: 0, selectionEnd: 0 });
@@ -38,6 +39,20 @@ export default function App() {
   
   // Modals
   const [activeModal, setActiveModal] = useState<string | null>(null);
+
+
+  // DSP State
+  const [isDSPOpen, setIsDSPOpen] = useState(false);
+  const [divergentBranches, setDivergentBranches] = useState<any[] | null>(null);
+
+  // Compute branches lazily or debounced
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+        const branches = getDivergentBranches();
+        setDivergentBranches(branches);
+    }, 1000); // Debounce graph traversal
+    return () => clearTimeout(timeout);
+  }, [content, getDivergentBranches]);
 
   // AI State
   const [isAIOpen, setIsAIOpen] = useState(false);
@@ -484,12 +499,24 @@ export default function App() {
       </div>
 
       <div className="relative">
-        <StatusBar 
-            cursor={cursor}
-            textLength={content.length}
-            lineCount={content.split('\n').length}
-            fileFormat={fileInfo.name.split('.').pop()?.toUpperCase() || 'TXT'}
-        />
+
+      <StatusBar
+        cursor={cursor}
+        fileInfo={fileInfo}
+        wordCount={content.split(/\s+/).filter(w => w.length > 0).length}
+        charCount={content.length}
+      />
+
+      {divergentBranches && (
+        <div className="absolute bottom-10 right-4">
+          <button
+            onClick={() => setIsDSPOpen(true)}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full shadow-lg text-xs font-bold flex items-center gap-2 animate-pulse"
+          >
+            Divergent Branches Detected - Open DSP
+          </button>
+        </div>
+      )}
         {/* AutoSave Indicator */}
         {settings.autoSaveInterval > 0 && (
             <div className="absolute right-2 top-0 bottom-0 flex items-center pr-8 pointer-events-none opacity-50">
@@ -721,6 +748,20 @@ export default function App() {
         </div>
       </Modal>
 
+
+{divergentBranches && divergentBranches.length >= 2 && (
+        <DSPModal
+            isOpen={isDSPOpen}
+            onClose={() => setIsDSPOpen(false)}
+            ancestorNode={getLowestCommonAncestor(divergentBranches[0].id, divergentBranches[1].id) || nodes.get(divergentBranches[0].id)!}
+            branches={divergentBranches}
+            onMerge={(branchIds, synthesizedText) => {
+                mergeBranches(branchIds, synthesizedText, 'synthesis');
+                setIsDSPOpen(false);
+                setDivergentBranches(null);
+            }}
+        />
+      )}
     </div>
   );
 }

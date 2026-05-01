@@ -63,8 +63,16 @@ export interface AIContext {
 export interface HistoryNode<T> {
   id: string;
   parentId: string | null;
+  parentIds?: string[]; // Support for DAG structure (Dialectical Synthesis)
   childrenIds: string[];
   state: T;
   timestamp: number;
-  origin: 'user' | 'ai' | 'system';
+  origin: 'user' | 'ai' | 'system' | 'synthesis';
+}
+
+export interface DivergentBranch<T> {
+  id: string;
+  state: T;
+  origin: 'user' | 'ai' | 'system' | 'synthesis';
+  timestamp: number;
 }
