@@ -131,3 +131,25 @@
 1. Implement a dedicated RAG Web Worker to handle document parsing, chunking, and local embedding generation.
 2. Integrate a local vector search mechanism (e.g., HNSW graph in IndexedDB).
 3. Update the `services/gemini.ts` pipeline to include a re-ranking middleware step and enforce the citation mapping output schema.
+
+## Feature 9: Epistemic Escrow Monitor (EEM)
+**Epic Breakdown:** To prevent Semantic Saponification and ensure the SPUG is not polluted by high-confidence/low-fidelity AI outputs, an intercept mechanism is required. The EEM monitors the CFDI (Confidence-Fidelity Divergence Index) in real-time.
+**User Story:** As an expert user, I want the system to automatically quarantine AI-generated text that strays from my established voice (high CFDI), so my primary undo graph remains pure while still allowing me to mine the quarantined text for novel ideas.
+**Acceptance Criteria:**
+- Background loop evaluates CFDI for all streaming operations.
+- Outputs where CFDI > 0.15 are diverted from the primary SPUG `ai` origin node into a dedicated "Epistemic Escrow" buffer.
+- UI provides access to the Escrow buffer for manual extraction.
+**Stakeholder Perspective Analysis:**
+- *End User (Founder/Expert):* Protects the structural baseline (β0 conservation) without discarding high-entropy AI cycles.
+- *Technical Architect:* Requires decoupling the standard streaming target from the active Virtual DOM, utilizing temporal state buffers.
+
+## Feature 10: Orthogonal Tension Injector (OTI)
+**Epic Breakdown:** Traditional synthesis aims for a smooth average. Emergent synthesis requires friction. The OTI intentionally introduces concepts from orthogonal domains (low cosine similarity) into the DSP.
+**User Story:** As a creative thinker stuck in a local minimum, I want the AI to inject a seemingly unrelated but structurally isomorphic concept into my synthesis process, forcing a lateral cognitive leap.
+**Acceptance Criteria:**
+- Utilizes the `+++EntropyAnchor` PDL decorator.
+- During DSP merge conflicts, offers a third option derived from a pre-calculated orthogonal domain (e.g., if writing about finance, injects a topological metaphor from fluid dynamics).
+- Ensures the projected vector is mathematically constrained (JSD < 0.20 post-binding) to prevent useless noise.
+**Stakeholder Perspective Analysis:**
+- *End User (Creative):* Experiences genuine "eureka" moments triggered by artificial serendipity.
+- *Technical Architect:* Relies on advanced hyperdimensional symbolic encoding (VSA) to map source vectors accurately.
