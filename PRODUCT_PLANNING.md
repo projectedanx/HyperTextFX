@@ -153,3 +153,20 @@
 **Stakeholder Perspective Analysis:**
 - *End User (Creative):* Experiences genuine "eureka" moments triggered by artificial serendipity.
 - *Technical Architect:* Relies on advanced hyperdimensional symbolic encoding (VSA) to map source vectors accurately.
+
+## Feature 11: Axiom Structural Guard / Pluriversal Emergence
+**Epic Breakdown:** The core of the Pluriversal Editor is the inversion of the standard human-AI "Copilot" dependency graph. Instead of the AI passively completing text (which leads to Semantic Saponification), the AI acts as an Orthogonal Tension Injector (OTI). The Axiom Structural Guard monitors this friction, ensuring that the human's zero-entropy intent (the Thesis Spine) is never silently overwritten by the AI's high-entropy latent space projections.
+**User Story:** As an experimental author, I want the AI to propose structurally orthogonal concepts that clash with my current text, and I want the system to force me to resolve this tension in the Dialectical Synthesis Plane, so that the final artifact is genuinely emergent and not just a statistical average.
+**Acceptance Criteria:**
+- The Copilot dynamic is explicitly inverted: AI suggestions are injected as conflict nodes in the SPUG, not inline completions.
+- The Epistemic Escrow Monitor (EEM) actively tracks the Confidence-Fidelity Divergence Index (CFDI) of incoming AI streams.
+- AI projections with a CFDI > 0.15 are diverted into an Escrow buffer and visualized using "Tension" styling.
+- Resolution of the tension requires explicit human invocation of the Dialectical Merge (DSP).
+**Stakeholder Perspective Analysis:**
+- *End User (Creative):* Experiences intentional cognitive friction designed to break writer's block and local minima.
+- *Technical Architect:* Must implement the EEM background validation loop and handle complex routing of streaming tokens to secondary Escrow graph nodes.
+- *Business/Product:* Establishes a paradigm-shifting approach to AI interaction—"AI as Friction" rather than "AI as Autocomplete."
+**Requirement Decomposition:**
+1. Implement the Epistemic Escrow routing logic in `useHistory.ts`.
+2. Update the `DSPModal.tsx` to handle Orthogonal Tension injections.
+3. Integrate the CFDI monitoring pipeline into the `gemini.ts` streaming parser.
