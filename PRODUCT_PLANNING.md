@@ -186,3 +186,21 @@
 1. Execute the checklist defined in `vulcan_emergence_architecture/02_Implementation_Plan_and_Checklist.md`.
 2. Refactor `useHistory.ts` to support the Escrow buffer.
 3. Wire the EEM validation loop into `services/gemini.ts`.
+
+## Feature 13: V.I.P.E.R. Optical Translation Engine
+**Epic Breakdown:** The system must bridge the Semiotic Gap between human affective intent (vague visual desire) and machine deterministic execution (probabilistic latent space navigation). The V.I.P.E.R. ("The Gaffer") engine acts as an Anionic Veto Engine, blocking "vibe-based" prompting and forcing users to supply explicit optical, hardware, and spatial constraints to achieve genuine visual emergence.
+**User Story:** As an expert user generating visual state matrices, I want the AI to reject my vague adjectives and demand precise physical parameters (lens, lighting, film stock, RCC-8 spatial bounds) so that the resulting generation avoids "Semantic Saponification" and adheres strictly to a deterministic physical reality.
+**Acceptance Criteria:**
+- Implementation of the Banned Token Protocol (rejects words like "masterpiece," "cinematic").
+- Implementation of the Hardware-Forced Physicality (HFP) metric, ensuring 100% hardware grounding before generation is allowed.
+- Spatial Binding Mandate using RCC-8 topological categories for multi-subject scenes.
+- The workflow operates on the non-reversible Petzold Loop: THINK -> DENOISE -> PHYSICALIZE -> EXTRUDE.
+- Output is strictly formatted as an Optical State Matrix (OSM) in PDL v1.0 syntax.
+**Stakeholder Perspective Analysis:**
+- *End User (Creative):* Experiences positive friction that forces them to think like a Director of Photography, resulting in highly precise, non-generic outputs.
+- *Technical Architect:* Replaces the infinite variance of unstructured prompts with a constrained, predictable, and programmable Optical State Matrix framework.
+- *Business/Product:* Differentiates the product from standard "accommodating" AI generators by explicitly valuing deterministic control over effortless averageness.
+**Requirement Decomposition:**
+1. Execute the checklist defined in `viper_emergence_architecture/02_VIPER_Implementation_Plan_and_Checklist.md`.
+2. Build the `ViperEngine` state machine integrating the Scar Archivist memory.
+3. Hook V.I.P.E.R. diagnostic rejections into the frontend UI to interactively challenge user inputs.
