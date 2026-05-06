@@ -170,3 +170,19 @@
 1. Implement the Epistemic Escrow routing logic in `useHistory.ts`.
 2. Update the `DSPModal.tsx` to handle Orthogonal Tension injections.
 3. Integrate the CFDI monitoring pipeline into the `gemini.ts` streaming parser.
+
+## Feature 12: VULCAN Relational Dynamics Inversion
+**Epic Breakdown:** The system currently possesses the concept of Orthogonal Tension, but lacks the formal structural boundaries mandated by VULCAN (The Brutalist architecture persona). We must implement the C4-mapped relational dynamics, ensuring the Human Sovereign Baseline and the AI Orthogonal Tension Injector (OTI) interact strictly via explicit graph merges in the DSP, rather than shared inline state.
+**User Story:** As an expert author, I want the AI to propose lateral concepts in a strictly isolated visual and structural space (Epistemic Escrow), so that my core manuscript remains entirely deterministic and untouched until I explicitly decide to synthesize the tension.
+**Acceptance Criteria:**
+- The system enforces a strict Mereological Mandate: AI nodes and User nodes do not share the same immediate state container.
+- High CFDI streams are routed to an Epistemic Escrow buffer.
+- The DSP acts as the sole bridging mechanism between the zero-entropy human state and the high-entropy AI state.
+**Stakeholder Perspective Analysis:**
+- *End User (Expert):* Retains absolute control over the baseline artifact while still receiving high-variance cognitive friction.
+- *Technical Architect:* Requires implementation of rigid C4 component boundaries and message-passing protocols instead of shared mutable state.
+- *Business/Product:* Establishes a highly defensible, structurally sound product architecture that solves the "AI Autocomplete" degradation problem.
+**Requirement Decomposition:**
+1. Execute the checklist defined in `vulcan_emergence_architecture/02_Implementation_Plan_and_Checklist.md`.
+2. Refactor `useHistory.ts` to support the Escrow buffer.
+3. Wire the EEM validation loop into `services/gemini.ts`.
