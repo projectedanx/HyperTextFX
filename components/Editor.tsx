@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { CursorPos } from '../types';
 
+/**
+ * Contract defining the state and callback bindings for the deterministic text surface.
+ */
 interface EditorProps {
   content: string;
   onChange: (text: string) => void;
@@ -10,6 +13,13 @@ interface EditorProps {
   inputRef: React.RefObject<HTMLTextAreaElement>;
 }
 
+/**
+ * The primary synchronous input layer.
+ * Extrudes the current SPUG leaf node into a manipulable geometric space (the DOM).
+ * Tracks exact spatial coordinates (cursor, selection) for the AI contextual state payload.
+ *
+ * @param {EditorProps} props - The active text buffer, configuration parameters, and mutation handlers.
+ */
 export const Editor: React.FC<EditorProps> = ({ 
   content, 
   onChange, 

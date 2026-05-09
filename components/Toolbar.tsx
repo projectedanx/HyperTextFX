@@ -11,6 +11,9 @@ import {
 } from 'lucide-react';
 import { TextTransformType } from '../types';
 
+/**
+ * Contract defining the properties passed to the synchronous command palette (Toolbar).
+ */
 interface ToolbarProps {
   onNew: () => void;
   onOpen: () => void;
@@ -23,6 +26,13 @@ interface ToolbarProps {
   isAIOpen: boolean;
 }
 
+/**
+ * Represents a top-level deterministic category dropdown within the Toolbar.
+ *
+ * @param {string} label - The visible category name.
+ * @param {React.ReactNode} children - The structural operations contained within.
+ * @param {any} [icon] - Optional visual signifier.
+ */
 const MenuButton = ({ label, children, icon: Icon }: { label: string, children: React.ReactNode, icon?: any }) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -57,6 +67,14 @@ const MenuButton = ({ label, children, icon: Icon }: { label: string, children: 
   );
 };
 
+/**
+ * Represents an actionable deterministic command within a MenuButton.
+ *
+ * @param {string} label - The operation nomenclature.
+ * @param {Function} onClick - The synchronous execution callback.
+ * @param {string} [shortcut] - The physicalized hardware binding indicator.
+ * @param {boolean} [danger=false] - Visually signifies destructive operations.
+ */
 const MenuItem = ({ label, onClick, shortcut, danger = false }: { label: string, onClick: () => void, shortcut?: string, danger?: boolean }) => (
   <button 
     className={`px-4 py-2 text-left text-sm hover:bg-editor-selection flex justify-between items-center group w-full ${danger ? 'text-red-400' : 'text-editor-fg'}`}
@@ -67,8 +85,18 @@ const MenuItem = ({ label, onClick, shortcut, danger = false }: { label: string,
   </button>
 );
 
+/**
+ * A structural barrier used to separate semantic command groups.
+ */
 const Divider = () => <div className="h-px bg-editor-border my-1 mx-2" />;
 
+/**
+ * The deterministic command palette of the Pluriversal Editor.
+ * Responsible for dispatching synchronous TextFX operations and initiating system modals.
+ * Exists in direct dialectical opposition to the asynchronous AIPanel.
+ *
+ * @param {ToolbarProps} props - The event handlers and operational state configuration.
+ */
 export const Toolbar: React.FC<ToolbarProps> = ({ 
   onNew, onOpen, onSave, onTransform, onOpenModal, onToggleWrap, onToggleAI, wordWrap, isAIOpen
 }) => {

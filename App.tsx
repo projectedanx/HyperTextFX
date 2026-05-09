@@ -24,6 +24,14 @@ import {
   AIContext
 } from './types';
 
+/**
+ * The central orchestration kernel of the Pluriversal Editor.
+ * Manages the Symbiotic Paraconsistent Undo Graph (SPUG), bridges deterministic TextFX operations
+ * with asynchronous AI stream interactions, and handles structural geometric updates (Cursor tracking, UI State).
+ * Establishes the topological boundary between Human Sovereign execution and AI Orthogonal Tension.
+ *
+ * @returns {React.ReactElement} The assembled application manifold.
+ */
 export default function App() {
   // --- State ---
   const { state: content, set: setContent, undo, redo, getDivergentBranches, mergeBranches, getLowestCommonAncestor, nodes, currentId } = useHistory<string>('// Welcome to HyperTextFX\n// Start typing or drop a file here...\n// Toggle Gemini AI in the toolbar to start coding intelligently.');
