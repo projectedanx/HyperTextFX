@@ -26,6 +26,16 @@ const updateEditorTool: FunctionDeclaration = {
   },
 };
 
+/**
+ * Orchestrates the asynchronous, recursive AI streaming loop.
+ * Manages the generation of tokens and handles 'update_editor' tool calls mid-stream.
+ *
+ * @param {ChatMessage[]} history - The localized conversation lineage.
+ * @param {AIContext} context - The current epistemic state snapshot of the active file.
+ * @param {boolean} isThinkingMode - Toggles the high-budget reasoning configuration (e.g., gemini-3-pro).
+ * @param {(toolCall: any) => Promise<any>} onToolCall - Callback to execute physicalized AST modifications requested by the AI.
+ * @yields {{type: string, name?: string, result?: any, content?: string}} The streamed response chunks or tool execution signals.
+ */
 export async function* streamGeminiResponse(
   history: ChatMessage[],
   context: AIContext,
@@ -120,6 +130,15 @@ If the user asks a question, answer concisely.
   }
 }
 
+/**
+ * Acts as the Dialectical Synthesis Plane (DSP), merging divergent temporal branches within the SPUG.
+ * Utilizes Contrastive Decoding principles to synthesize semantic intent rather than relying on strict line-by-line diffs.
+ *
+ * @param {string} ancestorText - The lowest common ancestor (LCA) state text.
+ * @param {{ origin: string; text: string }} branchA - The primary divergent branch (e.g., human structural edits).
+ * @param {{ origin: string; text: string }} branchB - The secondary divergent branch (e.g., AI semantic expansions).
+ * @returns {Promise<string>} The synthesized, dialectically merged text payload.
+ */
 export async function synthesizeBranches(
   ancestorText: string,
   branchA: { origin: string; text: string },

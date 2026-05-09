@@ -1,4 +1,8 @@
 
+/**
+ * Represents the spatial coordinates and selection bounds of the cursor within the editor.
+ * Used for deterministic topographical mapping.
+ */
 export interface CursorPos {
   line: number;
   col: number;
@@ -6,12 +10,20 @@ export interface CursorPos {
   selectionEnd: number;
 }
 
+/**
+ * Encapsulates metadata and system handle references for the currently active file.
+ * Anchors the document to the local file system constraints.
+ */
 export interface FileInfo {
   name: string;
   handle?: FileSystemFileHandle;
   isModified: boolean;
 }
 
+/**
+ * Enumerates the deterministic structural mutations available via the TextFX menu.
+ * These operations are strictly synchronous and independent of AI streaming.
+ */
 export enum TextTransformType {
   UPPERCASE = 'UPPERCASE',
   LOWERCASE = 'LOWERCASE',
@@ -32,6 +44,9 @@ export enum TextTransformType {
   JOIN_LINES = 'JOIN_LINES',
 }
 
+/**
+ * Defines the user-configurable visual and behavioral parameters of the editing environment.
+ */
 export interface EditorSettings {
   wordWrap: boolean;
   showLineNumbers: boolean;
@@ -39,6 +54,9 @@ export interface EditorSettings {
   autoSaveInterval: number; // in ms, 0 = disabled
 }
 
+/**
+ * Configures the parameters for synchronous string matching and substitution operations.
+ */
 export interface FindReplaceOptions {
   findText: string;
   replaceText: string;
@@ -46,6 +64,9 @@ export interface FindReplaceOptions {
   matchCase: boolean;
 }
 
+/**
+ * Represents a single dialectical exchange entity between the human operator and the AI system.
+ */
 export interface ChatMessage {
   id: string;
   role: 'user' | 'model';
@@ -53,6 +74,10 @@ export interface ChatMessage {
   isThinking?: boolean;
 }
 
+/**
+ * The constrained epistemic state snapshot transmitted to the AI engine.
+ * Contains only the active buffer geometry to prevent context contamination.
+ */
 export interface AIContext {
   fullText: string;
   selection: string;
@@ -60,6 +85,11 @@ export interface AIContext {
   fileName: string;
 }
 
+/**
+ * A vertex in the Symbiotic Paraconsistent Undo Graph (SPUG).
+ * Represents a discreet temporal state mutation, allowing for non-linear, divergent history tracks.
+ * @template T The type of the state payload (typically the raw text buffer).
+ */
 export interface HistoryNode<T> {
   id: string;
   parentId: string | null;
@@ -70,6 +100,10 @@ export interface HistoryNode<T> {
   origin: 'user' | 'ai' | 'system' | 'synthesis';
 }
 
+/**
+ * Identifies a non-merged leaf node within the SPUG, signifying un-synthesized parallel intents.
+ * @template T The type of the state payload.
+ */
 export interface DivergentBranch<T> {
   id: string;
   state: T;

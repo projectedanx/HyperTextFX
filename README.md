@@ -2,96 +2,39 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# HyperTextFX: The Pluriversal Editor
 
-This contains everything you need to run your app locally.
+HyperTextFX is a deterministic, paraconsistent text editing environment designed to explore non-linear Human-AI collaboration. Rather than relying on simple "copilot" auto-completion (which risks *Semantic Saponification*), this editor establishes a rigorous topological boundary between synchronous human intent and asynchronous AI token streams.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1VHUoRCZmwZNP1RXjYUxY0aLJFxEgXj8S
+By operating via a **Symbiotic Paraconsistent Undo Graph (SPUG)** and resolving conflicts through a **Dialectical Synthesis Plane (DSP)**, the application ensures that contradictory states can co-exist and be semantically merged, enforcing mathematical viability ($\beta_0 > 0.95$) across complex editing architectures.
 
-## Run Locally
+## Local Setup
 
-**Prerequisites:**  Node.js
+**Prerequisites:**  Node.js (v18+)
 
-
-1. Install dependencies:
+1. Clone the repository and install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Configure your environment:
+   Create a `.env.local` file in the root directory and supply your Gemini API key:
+   `GEMINI_API_KEY=your_api_key_here`
+3. Initialize the Pluriversal Editor:
    `npm run dev`
+
+## Architecture & Epistemic Domains
+
+### 1. The Symbiotic Paraconsistent Undo Graph (SPUG)
+Found in `hooks/useHistory.ts`, the SPUG replaces linear undo/redo stacks. It tracks the origin of every state mutation (`user`, `ai`, or `system`), allowing the editor history to split into a Directed Acyclic Graph (DAG) during simultaneous execution events.
+
+### 2. The Dialectical Synthesis Plane (DSP)
+Located in `components/DSPModal.tsx` and powered by `synthesizeBranches` in `services/gemini.ts`. When the SPUG detects divergent branches (e.g., the user types while the AI is simultaneously streaming text), the DSP does not invoke a traditional line-by-line git merge. Instead, it utilizes Contrastive Decoding to synthesize the *semantic intent* of both parallel branches into a unified topology.
+
+### 3. Manifold Isolation & The Orthogonal Tension Injector (OTI)
+The AI does not exist within the primary input flow. It operates as an orthogonal entity via the `AIPanel` component. This deliberate friction prevents the AI from passively averaging out user input, instead forcing it to act as an external dialectical counterpart—an *Anionic Veto Engine*.
 
 ## Lessons Learned: Pluriversal Feature Discovery
 
-The codebase has undergone a paraconsistent analysis to maximize topological novelty ($\beta_1 > 0.7$) while maintaining structural conservation ($\beta_0 > 0.9$).
+Through iterative systemic analysis, we have extruded several key architectural paradigms (documented further in `PRODUCT_PLANNING.md`, `LEXICON.md`, and specific agent enclaves):
 
-Key takeaways from the generated Cognitive Contract:
-- **RCC-8 Topological Blending**: Discovered a partial overlap (PO) between `services/gemini.ts` (Async Streaming AI) and `services/textOps.ts` (Sync Deterministic Regex).
-- **Z-Axis Inference**: Overcame contradictory parameters by projecting a phantom dimension (Temporal State Buffer) that routes streaming AI tokens to the virtual DOM in real-time.
-- **VW3 Dissonance**: Identified a failure mode (undo stack collapsing during AI streams vs. sync operations) and rectified it using a Paraconsistent History Graph.
-- **Chain-of-Code Validation**: Enactment simulation achieved a mathematical viability coefficient of >1.0, proving architectural soundness.
-
-## Epistemic Escrow & Future Ideation
-Through rigorous application of the Modified Petzold Sequence, the Pluriversal Knowledge Capsule has been extruded to define six core future features (detailed in `PRODUCT_PLANNING.md`).
-- **Hickam's Dictum Over Occam's Razor:** The integration of AI into deterministic text editors represents a high-entropy collision. We reject simple "copilot" integrations in favor of structurally isomorphic systems.
-- **Topological Resonance:** New features like the Symbiotic Paraconsistent Undo Graph (SPUG) ensure that semantic contradictions are mapped as energetic tension loops rather than fatal errors.
-- **Twinning & Anionic Veto:** AI intervention must act as a shadow process, utilizing contrastive evaluation to protect baseline operations while enabling cognitive expansion.
-
-### Update 1: SPUG Implemented
-* Refactored `useHistory.ts` to utilize a Directed Acyclic Graph (DAG) state topology instead of a linear array.
-* Added `origin` tracking (`user` | `ai` | `system`) for state changes.
-* Modified `App.tsx` and `types.ts` to integrate and support the new history structure.
-- **Dialectical Synthesis Plane (DSP):** Resolves divergent `user` and `ai` edits in the SPUG through intent-based semantic synthesis rather than traditional line-by-line conflict resolution.
-
-### Update 2: LEXIS SOVEREIGN Agent Integration
-* Extruded a new feature concept (`PRODUCT_PLANNING.md` Feature 7) for a Sovereign Book Co-Author agent.
-* Developed a comprehensive Agent Design Document (`LEXIS_SOVEREIGN_AGENT_DESIGN.md`) detailing the SCOS architecture, Epistemic Matrix, and Petzold Loop workflow.
-- **Semantic Saponification Mitigation:** Highlighted the risk of LLMs regressing to the RLHF-mean and designed mechanisms (ContextLock, CFDI, Symbolic Scars) to combat this thermodynamic decay.
-- **Draft-Conditioned Constrained Decoding (DCCD):** Emphasized the necessity of Manifold Isolation—strictly separating structural editing (Manifold β) from voice generation (Manifold α) to prevent Projection Tax and ensure deterministic artifact generation.
-
-### Update 3: DRP-LEXICON-992 Integration
-* Formalized the Cognitive Bytecode schema (`DRP-LEXICON-992-v1.0`) into `LEXICON.md`.
-* Integrated PDL v1.0 Decorator Registry mapping programmatic interventions for epistemic remediation.
-- **Isomorphic Bridge & Polyglot Hallucination:** Anchored validation mechanisms for Pluriversal Feature Discovery ensuring mathematical viability against mode collapse.
-
-### Update 4: RAG Integration via Client-Side Execution Pipeline (CxEP)
-* Analyzed an external Next.js/Firestore server-side RAG specification (`AGENTS-NextJS-Frontend.md`) and successfully extruded its capabilities into our client-centric architecture via `ADR-001`.
-* Appended Feature 8 to `PRODUCT_PLANNING.md` to formalize the implementation of a Client-Side Execution Pipeline (CxEP).
-- **Isomorphic Bridge Construction:** Demonstrated that the epistemic intent of RAG (grounding and citation) can be isolated from its typical infrastructure (server/Firestore) and mapped onto a constrained client topology (Web Workers/IndexedDB) without violating the structural conservation ($\beta_0 > 0.95$) of the Pluriversal Editor.
-- **Manifold Isolation:** Ensured that heavy vector retrieval operations are structurally sequestered from the main UI thread and the synchronous SPUG state, preventing latency-induced topological collapse.
-
-
-
-### Update 5: Dialectical Synthesis Plane (DSP) Implemented
-* Added `components/DSPModal.tsx` to visualize divergent branches.
-* Updated `hooks/useHistory.ts` to support fetching and merging divergent branches.
-* Created `synthesizeBranches` in `services/gemini.ts` to perform semantic intent synthesis.
-* Solved Feature 6 in `PRODUCT_PLANNING.md` by replacing traditional binary merge conflicts with AI-driven intent synthesis.
-
-### Update 6: Pluriversal Emergence Strategy Extruded
-* Conducted a thorough analysis of human-AI relational dynamics to invert the standard "Copilot" dependency graph.
-* Created the `emergence_strategy` enclave to govern the implementation of the Pluriversal Inversion Strategy.
-- **Topological Deformer:** Formalized the AI's role not as an autocomplete engine, but as an orthogonal friction generator to combat Semantic Saponification.
-- **Epistemic Escrow & Orthogonal Tension:** Added Product Planning features for the Epistemic Escrow Monitor (EEM) and the Orthogonal Tension Injector (OTI) to strictly decouple the Human Sovereign Baseline from the AI's high-entropy projections.
-
-### Update 7: Axiom Emergence Protocol Extruded
-* Executed the Copilot Inversion strategy via the implementation of `axiom_emergence_protocol/ADR-003-Pluriversal-Emergence-Inversion.md`.
-* Created an operational Runbook (`01_Implementation_Runbook.md`) establishing the dialectical friction required between the human Sovereign Baseline and the AI's Orthogonal Tension Injector (OTI).
-- **Epistemic Isolation:** Formalized the separation between zero-entropy intent and high-entropy exploration to synthesize emergent structural logic without succumbing to Semantic Saponification.
-
-### Update 8: VULCAN Emergence Inversion Strategy Extruded
-* Extruded a comprehensive architectural strategy (`vulcan_emergence_architecture/01_C4_Relational_Dynamics_Strategy.md`) detailing the required relational dynamics between Human and AI.
-* Designed an implementation plan and checklist (`vulcan_emergence_architecture/02_Implementation_Plan_and_Checklist.md`) to execute this strategy.
-- **Dialectical Inversion:** Established that true emergence requires the AI to act as an Orthogonal Tension Injector (OTI), rather than an autocomplete Copilot. This prevents Semantic Saponification and forces non-Euclidean exploration.
-- **Mereological Mandate:** Enforced strict separation (Manifold Isolation) between the Human's zero-entropy intent graph and the AI's high-entropy projections via the Epistemic Escrow Monitor (EEM).
-
-### Update 9: V.I.P.E.R. Emergence Architecture Extruded
-* Extruded the V.I.P.E.R. ("The Gaffer") persona strategy (`viper_emergence_architecture/01_VIPER_Emergence_Strategy.md`) to resolve the Semiotic Gap between human affective intent and machine deterministic execution.
-* Designed a rigorous implementation checklist (`viper_emergence_architecture/02_VIPER_Implementation_Plan_and_Checklist.md`) to build the Optical Translation Engine.
-- **Positive Friction & Anionic Veto:** Established that to avoid Semantic Saponification (the AI averaging out vague aesthetic prompts into plastic smoothness), the system must actively reject "vibe" tokens (e.g., "cinematic", "beautiful") and enforce Hardware-Forced Physicality (HGI = 100%) and strict RCC-8 Spatial Geometry bindings.
-- **The Petzold Loop:** Formalized the THINK -> DENOISE -> PHYSICALIZE -> EXTRUDE sequence to guarantee that only deterministic Optical State Matrices (OSM) reach the generation layer.
-
-### Update 10: VORTEX Emergence Architecture Extruded
-* Extruded the VORTEX-ARCHITECT persona strategy (`vortex_emergence_architecture/01_VORTEX_Emergence_Strategy.md`) to define the boundaries of value between AI and Human, and establish the agentic inversion strategy.
-* Designed an implementation plan and checklist (`vortex_emergence_architecture/02_Implementation_Plan_and_Checklist.md`) to execute this deterministic orchestration.
-- **Agentic Inversion:** Identified that AI value does not stem from "copilot" autocomplete functionality, which leads to Semantic Saponification. True emergence requires the AI to act as a deterministic Orchestration Kernel enforcing orthogonal tension.
-- **Negative Space Scaffolding:** Emphasized defining what the system *cannot* do. By establishing strict environmental realities and bounds, we constrain the generative compute into structurally sound mathematical topologies.
-- **Topological Diagnostic Engine:** Formalized the detection of Betti-1 ($\beta_1$) loops to map reasoning failures geometrically, logging them into a Symbolic Scar Tissue Archive to repel attention heads from future logic shearing.
+*   **Hickam's Dictum Over Occam's Razor:** We reject parsimony in human-AI interaction. The collision of deterministic text and probabilistic generation creates necessary entropy. The editor embraces this via its DAG topology.
+*   **Draft-Conditioned Constrained Decoding (DCCD):** We established the Golden Scar Protocol, insisting on strict structural separation between deterministic state execution (`textOps.ts`) and AI generative streams (`gemini.ts`).
+*   **Sovereign Cognitive Operating System (SCOS):** Implemented programmatic verifications (e.g., `aew_agent.py`) to algorithmically prove the mathematical viability of our topological integrations before execution, utilizing Cognitive Contracts to prevent paradigm decay.

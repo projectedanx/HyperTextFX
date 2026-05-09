@@ -1,5 +1,12 @@
 import { TextTransformType } from '../types';
 
+/**
+ * Executes synchronous, deterministic text transformations mapped via the TextTransformType enum.
+ *
+ * @param {string} text - The raw text payload to be transformed.
+ * @param {TextTransformType} type - The specific structural mutation to apply.
+ * @returns {string} The transformed text payload.
+ */
 export const processText = (text: string, type: TextTransformType): string => {
   const lines = text.split('\n');
 
@@ -52,6 +59,14 @@ export const processText = (text: string, type: TextTransformType): string => {
   }
 };
 
+/**
+ * Topologically inserts a string at a specific column index across all lines in the buffer.
+ *
+ * @param {string} text - The target text buffer.
+ * @param {number} column - The zero-based column index for insertion.
+ * @param {string} stringToInsert - The payload to extrude into the specified column.
+ * @returns {string} The modified text buffer.
+ */
 export const insertAtColumn = (text: string, column: number, stringToInsert: string): string => {
   const lines = text.split('\n');
   const processed = lines.map(line => {
@@ -64,6 +79,14 @@ export const insertAtColumn = (text: string, column: number, stringToInsert: str
   return processed.join('\n');
 };
 
+/**
+ * Performs deterministic geometric deletion starting at a specific column across all lines.
+ *
+ * @param {string} text - The target text buffer.
+ * @param {number} column - The zero-based starting column index.
+ * @param {number} count - The number of characters to obliterate.
+ * @returns {string} The modified text buffer.
+ */
 export const deleteAtColumn = (text: string, column: number, count: number): string => {
   const lines = text.split('\n');
   const processed = lines.map(line => {
@@ -73,6 +96,15 @@ export const deleteAtColumn = (text: string, column: number, count: number): str
   return processed.join('\n');
 };
 
+/**
+ * Sequentially numbers all lines in the text buffer with optional contextual bounding.
+ *
+ * @param {string} text - The target text buffer.
+ * @param {number} start - The initial integer to begin counting from.
+ * @param {string} [prefix=''] - A structural prefix appended before the number.
+ * @param {string} [suffix=' '] - A structural suffix appended after the number.
+ * @returns {string} The numbered text buffer.
+ */
 export const numberLines = (text: string, start: number, prefix: string = '', suffix: string = ' '): string => {
   const lines = text.split('\n');
   return lines.map((line, index) => {

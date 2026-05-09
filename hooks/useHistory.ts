@@ -1,6 +1,26 @@
 import { useState, useCallback, useRef } from 'react';
 import { HistoryNode } from '../types';
 
+/**
+ * Manages the Symbiotic Paraconsistent Undo Graph (SPUG).
+ * Deviates from linear undo/redo stacks to map state changes as a Directed Acyclic Graph (DAG),
+ * allowing simultaneous non-linear editing by Human and AI agents without temporal collapse.
+ *
+ * @template T The type of the tracked state.
+ * @param {T} initialState - The axiomatic starting state of the buffer.
+ * @returns An object containing the current state and topological manipulation methods:
+ *   - `state`: The currently active state node payload.
+ *   - `set`: Commits a new state mutation to the graph.
+ *   - `undo`: Traverses backward along the current branch topology.
+ *   - `redo`: Traverses forward to the most recently active child node.
+ *   - `canUndo`: Boolean indicating if backward traversal is possible.
+ *   - `canRedo`: Boolean indicating if forward traversal is possible.
+ *   - `nodes`: The complete Map of all historical nodes in the SPUG.
+ *   - `currentId`: The UUID of the currently active node.
+ *   - `getDivergentBranches`: Locates non-synthesized leaf nodes resulting from simultaneous multi-agent edits.
+ *   - `mergeBranches`: Fuses divergent topological branches into a single synthesized child node.
+ *   - `getLowestCommonAncestor`: Calculates the LCA node bridging two disparate branches for semantic differencing.
+ */
 export function useHistory<T>(initialState: T) {
   const generateId = () => Math.random().toString(36).substr(2, 9);
 

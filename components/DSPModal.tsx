@@ -4,6 +4,9 @@ import { HistoryNode } from '../types';
 import { synthesizeBranches } from '../services/gemini';
 import { GitMerge, Loader2 } from 'lucide-react';
 
+/**
+ * Contract defining the divergent branches and resolution callbacks required by the Synthesis Plane.
+ */
 interface DSPModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -12,6 +15,13 @@ interface DSPModalProps {
   onMerge: (branchIds: string[], synthesizedText: string) => void;
 }
 
+/**
+ * The interactive UI representing the Dialectical Synthesis Plane (DSP).
+ * When the SPUG detects divergent temporal branches (e.g., simultaneous Human/AI edits),
+ * this modal orchestrates the Contrastive Decoding synthesis process to merge semantic intent.
+ *
+ * @param {DSPModalProps} props - The divergent history nodes, their shared ancestor, and the synthesis execution callback.
+ */
 export const DSPModal: React.FC<DSPModalProps> = ({ isOpen, onClose, ancestorNode, branches, onMerge }) => {
   const [isSynthesizing, setIsSynthesizing] = useState(false);
   const [synthesizedText, setSynthesizedText] = useState<string | null>(null);

@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, BrainCircuit, X, Bot, User } from 'lucide-react';
 import { ChatMessage } from '../types';
 
+/**
+ * Defines the state bounds and interaction callbacks for the Orthogonal Tension Injector.
+ */
 interface AIPanelProps {
   isOpen: boolean;
   onClose: () => void;
@@ -10,6 +13,13 @@ interface AIPanelProps {
   isProcessing: boolean;
 }
 
+/**
+ * The Orthogonal Tension Injector (OTI) UI.
+ * Serves as the interactive conduit for the 'Sovereign Agent', deliberately isolated from the
+ * deterministic structural editing loop to prevent Semantic Saponification and enforce dialectical friction.
+ *
+ * @param {AIPanelProps} props - The current SPUG interaction state and AI routing callbacks.
+ */
 export const AIPanel: React.FC<AIPanelProps> = ({ 
   isOpen, 
   onClose, 

@@ -1,6 +1,9 @@
 import React from 'react';
 import { X } from 'lucide-react';
 
+/**
+ * Contract defining the parameters for the modal geometry boundary.
+ */
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -8,6 +11,12 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
+/**
+ * A structural Z-Axis extrusion used to capture user input without abandoning the primary editor context.
+ * Represents a temporary focus shift rather than a full state routing change.
+ *
+ * @param {ModalProps} props - Render triggers, closure callbacks, and internal content payload.
+ */
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 

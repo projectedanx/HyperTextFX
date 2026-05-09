@@ -2,6 +2,10 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
+/**
+ * Vite Configuration defining the build and server environment.
+ * Responsible for injecting environment variables (like GEMINI_API_KEY) into the client-side build context.
+ */
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
