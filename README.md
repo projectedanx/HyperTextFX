@@ -38,3 +38,6 @@ Through iterative systemic analysis, we have extruded several key architectural 
 *   **Hickam's Dictum Over Occam's Razor:** We reject parsimony in human-AI interaction. The collision of deterministic text and probabilistic generation creates necessary entropy. The editor embraces this via its DAG topology.
 *   **Draft-Conditioned Constrained Decoding (DCCD):** We established the Golden Scar Protocol, insisting on strict structural separation between deterministic state execution (`textOps.ts`) and AI generative streams (`gemini.ts`).
 *   **Sovereign Cognitive Operating System (SCOS):** Implemented programmatic verifications (e.g., `aew_agent.py`) to algorithmically prove the mathematical viability of our topological integrations before execution, utilizing Cognitive Contracts to prevent paradigm decay.
+
+### 4. Agentic Ingress over Reactive Prompting (KIRA-7 Emergence)
+*   **The Inversion:** Moving beyond copilot-style reactivity, the system implements a Feishu-SPUG Webhook Bridge (FSWB). This allows external autonomous agents (like KIRA-7) to monitor organizational event streams and forcefully inject topological context directly into the SPUG as parallel branches, completely decoupling AI execution from human initiation.
