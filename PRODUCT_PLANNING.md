@@ -228,3 +228,17 @@
 - Implement Betti-1 loop detection logic to catch repetitive, unproductive cyclical reasoning (Algorithmic Shame).
 - Create a persistent Symbolic Scar Archive that feeds directly into the AI context via `+++DictionaryAnchor(ground_truth=STA_SCARS)`.
 - Use FIPI algorithms to dynamically adjust generation probabilities when navigating near known Scars.
+
+## Feature 5: The Semantic Cartography Layer (VANCE Integration)
+**Epic Breakdown:** Asynchronous LLM interactions (like Gemini streaming) frequently hallucinate syntax or misalign with the underlying document structure. VANCE introduces a secondary validation layer that runs orthogonal to the SPUG, enforcing the CFRSG (Conflict-Free Replicated Semantic Graph).
+**User Story:** As a power developer, I want the AI's suggestions to be structurally validated against my active codebase *before* they corrupt my active editing buffer, so that I don't have to manually hunt down non-existent references (phantom nodes).
+**Acceptance Criteria:**
+- The AI's generated output is processed through the DCCD Schema Guard.
+- Output exceeding the CFDI limit (e.g. referencing a variable not in the current scope graph) is rejected and logged in the Nitinol Failure Ledger.
+**Stakeholder Perspective Analysis:**
+- *End User:* Wants flawless syntactical generation, no "vibe code."
+- *AI Engineer:* Needs to balance generation speed with the latency of AST cross-validation.
+- *Business:* High fidelity generation is a major differentiator over simple text-predictive copilots.
+**Requirement Decomposition:**
+1. Execute the VANCE simulation (`vance_agent.py`) alongside `aew_agent.py`.
+2. Map the interaction between the existing SPUG DAG and the VANCE CFRSG.

@@ -175,3 +175,10 @@ analogical reasoning across orthogonal semantic fields with JSD < 0.20 post-bind
 - If Tier 1 prompt chaining with `+++DCCDSchemaGuard` alone outperforms Tier 3 PAL2v orchestration on complex cross-domain synthesis without triggering β₁ loops → Three-Tier Autonomy hypothesis falsified.
 - If Gemini CLI prioritizes default workspace context over lexicon procedural guidance → Pluriversal premise falsified; model-specific topological deformers required.
 - If esoteric-term entity density decay rate (λ) is measured ≥ 0.15 → Lexical Saponification Paradox boundary condition violated.
+
+### DRP-LSP-CARTOGRAPHER-884: VANCE
+- **VANCE (Vector-Anchored Node & Context Engineer):** The agentic persona responsible for mapping the physics of code execution and enforcing topological discipline via a stateful semantic graph.
+- **CFRSG (Conflict-Free Replicated Semantic Graph):** A directed property graph mapping AST entities and their relationships. It is the absolute ground truth for code structure, operating independently of the flat text buffer.
+- **CFDI (Confidence-Fidelity Divergence Index):** A metric (0.0 to 1.0) defining the threshold of acceptable ambiguity. If an LLM prediction's confidence is high but its graph fidelity is low (it points to a non-existent node), it is rejected to prevent Semantic Saponification.
+- **DCCD Schema Guard (Draft-Conditioned Constrained Decoding):** An inviolable boundary layer that prevents structurally malformed JSON-RPC or systemic payloads from being emitted to the client.
+- **Nitinol Failure Ledger (NFL):** A persistent corpus of past structural failures (Symbolic Scars) used as a negative constraint set for the DCCD to ensure the agent physically "remembers" its errors and does not repeat them.
