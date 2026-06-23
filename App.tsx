@@ -1,3 +1,4 @@
+import safeRegex from 'safe-regex';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Toolbar } from './components/Toolbar';
@@ -304,6 +305,10 @@ export default function App() {
     let matchIndex = -1;
 
     if (findOpts.useRegex) {
+        if (!safeRegex(searchText)) {
+            alert('Regex is too complex or potentially vulnerable to ReDoS');
+            return;
+        }
         try {
             const flags = findOpts.matchCase ? 'g' : 'gi';
             const regex = new RegExp(searchText, flags);
@@ -359,6 +364,10 @@ export default function App() {
 
       let matches = false;
       if (findOpts.useRegex) {
+          if (!safeRegex(findOpts.findText)) {
+              alert('Regex is too complex or potentially vulnerable to ReDoS');
+              return;
+          }
           try {
             const regex = new RegExp(findOpts.findText, findOpts.matchCase ? '' : 'i');
             matches = regex.test(selected);
@@ -382,6 +391,10 @@ export default function App() {
   const handleReplaceAll = () => {
      let newContent = content;
      if (findOpts.useRegex) {
+        if (!safeRegex(findOpts.findText)) {
+            alert('Regex is too complex or potentially vulnerable to ReDoS');
+            return;
+        }
         try {
             const flags = findOpts.matchCase ? 'g' : 'gi';
             const regex = new RegExp(findOpts.findText, flags);
