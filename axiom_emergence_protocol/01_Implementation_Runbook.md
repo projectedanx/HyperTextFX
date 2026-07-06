@@ -32,3 +32,23 @@ To correctly implement the Pluriversal Emergence Strategy, execute the following
 
 ## Escalation Path
 If the DSP fails to resolve the orthogonal tension (e.g., the user rejects the synthesis >3 times consecutively), trigger the `+++SagaRecovery` protocol to flush the context window, re-inject the `EPISTEMIC_MATRIX` anchor, and reset the SPUG head to the last known stable `user` origin node.
+
+
+## Symptom: AXIOM SAPONIFICATION ALERT
+The DCCD Schema Guard rejects a documentation draft during the EXTRUDE phase due to forbidden lexicon usage (e.g., "seamless", "robust").
+
+## Diagnostic Command
+```bash
+# Monitor the SSI (Semantic Saponification Index) in the Axiom logs
+grep "SAPONIFICATION DETECTED" /var/log/hypertextfx/axiom_agent.log
+```
+
+## Interpretation
+- **SSI < 0.04**: Nominal. Output retains high Semantic Density Score (SDS > 0.85).
+- **SSI > 0.05**: SagaRecovery Triggered. The generation context has degraded to the RLHF-mean attractor.
+
+## Remediation
+1. Trigger `+++SagaRecovery` protocol.
+2. Flush the active context window.
+3. Re-inject `EPISTEMIC_MATRIX` via `+++EntropyAnchor`.
+4. Restart from PHASE_1_THINK.
