@@ -32,7 +32,7 @@ class AxiomSovereignSyntactician:
         """
         print("[*] THINK PHASE: Constructing internal semantic map...")
         # Simulate generating a structural map and evaluating CFDI
-        cfdi = random.uniform(0.01, 0.1) # Simulate nominal CFDI
+        cfdi = random.uniform(0.01, 0.2)  # Simulate nominal and escrow CFDI
         ast_map = {
             "source_type": "API_SPEC" if "API" in raw_input else "GENERAL",
             "cfdi_score": cfdi,
