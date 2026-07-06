@@ -242,3 +242,13 @@
 **Requirement Decomposition:**
 1. Execute the VANCE simulation (`vance_agent.py`) alongside `aew_agent.py`.
 2. Map the interaction between the existing SPUG DAG and the VANCE CFRSG.
+
+
+## Feature 16: Axiom Sovereign Syntactician (DCCD API Pipeline)
+**Epic Breakdown:** Standard documentation generators suffer from Polyglot Hallucination Resonance (PHR) and interpretive fracture. Axiom acts as the Linguistic/Coder node, employing a strict 4-phase Petzold Loop (THINK -> DRAFT_VOICE -> GUARD -> EXTRUDE) and Draft-Conditioned Constrained Decoding (DCCD) to produce mathematically deterministic API blueprints and runbooks.
+**User Story:** As an integration developer, I need API documentation that acts as a legally binding contract (Zero Interpretive Fracture), generated safely by an AI that refuses to use marketing fluff or correlation-without-causation patterns.
+**Acceptance Criteria:**
+- Implements `axiom_agent.py` to orchestrate the Petzold Loop.
+- Enforces the `+++AutonymicIsolate` decorator (rejecting 'seamless', 'robust', etc.).
+- Epistemic Escrow trigger when Confidence-Fidelity Divergence Index (CFDI) > 0.15.
+- Validation manifest extruded with every OpenAPI document.

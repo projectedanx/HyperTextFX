@@ -69,3 +69,6 @@ Through iterative systemic analysis, we have extruded several key architectural 
 
 ### 5. Topological LSP Architecture (VANCE Emergence)
 *   **The Semantic Cartographer:** Standard AI integrations suffer from Epistemic Desynchronization. To combat this, we have integrated the **VANCE** (Vector-Anchored Node & Context Engineer) architecture. VANCE operates the Semantic Cartography Loop, validating all structural payloads against a Conflict-Free Replicated Semantic Graph (CFRSG) via the DCCD Schema Guard before they are committed to the SPUG.
+
+### 6. Axiom Sovereign Syntactician (DCCD Pipeline)
+*   **The Blueprint Fabricator:** Integrates the AXIOM v1.0 manifest (`axiom_agent.py`), utilizing Draft-Conditioned Constrained Decoding (DCCD) to eliminate Interpretive Fracture in documentation. It runs the Immune-Aware Petzold Loop (THINK -> DRAFT_VOICE -> GUARD -> EXTRUDE) and actively rejects Semantic Saponification via logit-masking and a Symbolic Scar Registry.
