@@ -252,3 +252,48 @@
 - Enforces the `+++AutonymicIsolate` decorator (rejecting 'seamless', 'robust', etc.).
 - Epistemic Escrow trigger when Confidence-Fidelity Divergence Index (CFDI) > 0.15.
 - Validation manifest extruded with every OpenAPI document.
+
+## Feature 7: Phantom Dimension Controller (Geometric Cognition)
+**Epic Breakdown:** As part of Phase 1 of PROJECT_AURELIUS, standard generative processes rely on associative correlation of Euclidean concepts. The Phantom Dimension Controller establishes a causal chain of control over visual synthesis by dynamically modulating latent vectors to explicitly target Non-Euclidean spatial constraints (e.g., Hyperbolic, Elliptic, Spherical).
+**User Story:** As a spatial architect, I want to explicitly specify the geometric topology of a generated scene (e.g., a hyperbolic dodecahedron space) rather than hoping the AI correctly associates those words, ensuring mathematical consistency over statistical probability.
+**Acceptance Criteria:**
+- Create `PhantomDimensionController` mapping geometric descriptors to topological context payloads.
+- Inject payloads into the Unified Meta-Prompting API.
+- Validate latent space shifts via output divergence metrics.
+**Stakeholder Perspective Analysis:**
+- *End User:* Gains absolute geometric control over generated spaces.
+- *Technical Architect:* Requires a new translation layer to convert descriptors into latent space modulation directives.
+**Requirement Decomposition:**
+1. Define non-Euclidean geometric schemas.
+2. Develop the Translation Layer for meta-prompts.
+3. Hook the controller into `services/gemini.ts`.
+
+## Feature 8: Agentic Workflow Catalyst & Plausibility Oracle (Auto-Optimization & Provenance)
+**Epic Breakdown:** To invert standard AI control, Phase 2 introduces an Autonomous Prompt Engineering Workflow Catalyst. This agent generates and refines meta-prompts, constrained by a "Plausibility Oracle" using physically based rendering metrics to enforce geometric truth. It includes a Provenance Trail to dynamically weight training data influence.
+**User Story:** As a meta-architect, I want the system to autonomously optimize prompts based on physical plausibility (via ray tracing metrics) and track the provenance of the training data to re-weight biases dynamically, making ethical prompting structurally enforced.
+**Acceptance Criteria:**
+- Integrate an Agentic Chain looping meta-prompt generation with the Plausibility Oracle.
+- Establish the Provenance Trail tracker and "Semantic Drift" bias re-weighting logic.
+- Ensure the Plausibility Oracle leverages physically based constraints (simulating UIQI/SSIM/PSNR).
+**Stakeholder Perspective Analysis:**
+- *AI Engineer:* Introduces massive complexity via autonomous optimization loops and provenance tracking.
+- *Business/Product:* Solves both the "hallucination of physics" problem and the "ethical bias" problem simultaneously.
+**Requirement Decomposition:**
+1. Build the Agentic Prompt Catalyst workflow.
+2. Implement the Plausibility Oracle feedback loop and scoring mechanism.
+3. Develop the Provenance Tracker and Attribution Amplification engine.
+
+## Feature 9: GFlowNet Cross-Modal Perceptual Fusion (Ultra-Fidelity Rendering)
+**Epic Breakdown:** Phase 3 of PROJECT_AURELIUS pushes beyond RGB and standard diffusion. By explicitly integrating Multispectral Imaging (MSI) data into input conditioning, and architecting for GFlowNets, we target Quantum Dot perceptual fidelity and navigate hyper-dimensional latent spaces.
+**User Story:** As an ultra-fidelity creator, I want to condition generations on multispectral data and generate outputs explicitly optimized for quantum dot physical reflectance properties, ensuring true cross-modal view-consistency.
+**Acceptance Criteria:**
+- Define input conditioning interfaces for MSI data.
+- Architect theoretical framework for GFlowNet integration to handle Phantom Dimensions complexity.
+- Optimize the generative pipeline for Quantum Dot perceptual fidelity targets.
+**Stakeholder Perspective Analysis:**
+- *Technical Architect:* Highly theoretical; bridges standard front-end gen AI with deep foundational model research.
+- *End User:* Ultimately perceives "purer" physical realism and color representation.
+**Requirement Decomposition:**
+1. Define MSI conditioning interfaces.
+2. Create Quantum Dot rendering specification targets.
+3. Design theoretical GFlowNet transition architecture.
