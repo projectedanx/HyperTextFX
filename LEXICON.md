@@ -182,3 +182,21 @@ analogical reasoning across orthogonal semantic fields with JSD < 0.20 post-bind
 - **CFDI (Confidence-Fidelity Divergence Index):** A metric (0.0 to 1.0) defining the threshold of acceptable ambiguity. If an LLM prediction's confidence is high but its graph fidelity is low (it points to a non-existent node), it is rejected to prevent Semantic Saponification.
 - **DCCD Schema Guard (Draft-Conditioned Constrained Decoding):** An inviolable boundary layer that prevents structurally malformed JSON-RPC or systemic payloads from being emitted to the client.
 - **Nitinol Failure Ledger (NFL):** A persistent corpus of past structural failures (Symbolic Scars) used as a negative constraint set for the DCCD to ensure the agent physically "remembers" its errors and does not repeat them.
+
+### PAT-023 · Phantom Dimensions
+**Type**: Geometric Modulation | **AT Score**: 0.94
+**Definition**: High-level geometric descriptors mapped to granular parameter adjustments within the latent space, forcing explicit navigation of non-Euclidean topologies (e.g., Hyperbolic, Elliptic).
+**Mechanism**: Context Payload Injection. Replaces associative correlation with causal structural directives.
+**PDL Activators**: `+++SpatialBind[calculus="FuzzyRCC-8", require_z_axis_inference=true]`
+
+### PAT-024 · Plausibility Oracle
+**Type**: Epistemic Validation | **AT Score**: 0.91
+**Definition**: A deterministic, physics-based truth validator utilizing real-time differentiable ray tracing engines (PBR simulations) to score AI-generated meta-prompts and output geometry against ground-truth physical constraints.
+**Mechanism**: Autonomic feedback loop in Agentic Workflows. Uses UIQI/SSIM/PSNR analogs.
+**PDL Activators**: `+++DriftCheck[threshold=0.1]`
+
+### PAT-025 · Provenance Trail & Attribution Amplification
+**Type**: Epistemic Provenance | **AT Score**: 0.88
+**Definition**: Real-time tracking and dynamic re-weighting of training data influence within the generative pipeline, mitigating "Semantic Drift" and enforcing ethical prompting by directly modulating historical data bias.
+**Mechanism**: Zero-Entropy Extrusion constraint application.
+**PDL Activators**: `+++EntropyAnchor[level="high", focus="epistemic_dissonance_and_parallax" emergent="true"]`
